@@ -36,25 +36,29 @@ public class Pruebas {
         return numerosRpetidos;
     }
 
+    public static void imprimeArraySinCeros(int[] numeros){
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] != 0) {
+                System.out.print(numeros[i] + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
         int[] numeros = new int[10];
         rellenaArray(numeros, 1, 10);
 
+        int[] numerosRepetidos = encuentraNumerosRepetidos(numeros);
+
         for (int i = 0; i < numeros.length; i++) {
             System.out.print(numeros[i] + " ");
         }
-        System.out.println();
 
+        System.out.println();
         System.out.print("Se reptien los sigueientes numeros  ");
 
-        int[] numerosRepetidos = encuentraNumerosRepetidos(numeros);
-
-        for (int i = 0; i < numerosRepetidos.length; i++) {
-            if (numerosRepetidos[i] != 0) {
-                System.out.print(numerosRepetidos[i] + " ");
-            }
-        }
+        imprimeArraySinCeros(numerosRepetidos);
     }
 }
 
