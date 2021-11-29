@@ -14,6 +14,7 @@ public class Duplicados {
 
         for (int i = 0; i < numeros.length; i++) {
             for (int j = i + 1; j < numeros.length; j++) {
+                comprovar = true;
                 if (numeros[i] == numeros[j]) {
                     for (int t = 0; t < numerosRpetidos.length; t++) {
                         if (numerosRpetidos[t] == numeros[i]) {
@@ -28,10 +29,10 @@ public class Duplicados {
         }
         return numerosRpetidos;
     }
-    public static int[] quitaNumerosRepetidos(int[] numeros){
+    /*public static int[] quitaNumerosRepetidos(int[] numeros){
         int[] arrayLimpia = new int[numeros.length];
 
-    }
+    }*/
 
     public static void main(String[] args) {
 
