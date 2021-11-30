@@ -56,7 +56,7 @@ public class Duplicados {
         }
 
         System.out.println();
-        System.out.print("Se reptien los sigueientes numeros  ");
+        System.out.println("Se reptien los sigueientes numeros  ");
 
         imprimeArraySinCeros(numerosRepetidos);
     }
