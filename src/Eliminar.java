@@ -2,10 +2,11 @@ import java.util.Scanner;
 
 public class Eliminar {
 
-    public static void rellenaArray(int[] numeros) {
+    public static void rellenaArray(int[] array, int min, int max) {
 
-        for (int i = 0; i < numeros.length; i++) {
-            numeros[i] = i;
+        for (int i = 0; i < array.length; i++) {
+            int aleatorio = (int) (Math.random() * (max - min + 1) + min);
+            array[i] = aleatorio;
         }
     }
 
@@ -28,7 +29,7 @@ public class Eliminar {
         int movernum = reader.nextInt();
 
         int[] numeros = new int[6];
-        rellenaArray(numeros);
+        rellenaArray(numeros, 1, 9);
 
         if (movernum > numeros.length - 1) {
             do {
@@ -36,15 +37,16 @@ public class Eliminar {
                 movernum = reader.nextInt();
             } while (movernum > numeros.length - 1);
         }
-
+        System.out.println("Lista inicial");
         for (int i = 0; i < numeros.length; i++) {
-            System.out.print(numeros[i]);
+            System.out.print(numeros[i] + " ");
         }
         System.out.println();
         mueveNumero(numeros, movernum);
 
+        System.out.println("Lista movida");
         for (int i = 0; i < numeros.length; i++) {
-            System.out.print(numeros[i]);
+            System.out.print(numeros[i] + " ");
         }
     }
 }
