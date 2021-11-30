@@ -7,10 +7,10 @@ public class Duplicados {
         }
     }
 
-    public static boolean siNumeroEnArray(int[] numeros, int numero){
+    public static boolean siNumeroEnArray(int[] numeros, int numero) {
 
         boolean comprovar1 = true;
-        
+
         for (int i = 0; i < numeros.length; i++) {
             comprovar1 = true;
             if (numeros[i] == numero) {
@@ -18,25 +18,16 @@ public class Duplicados {
                 break;
             }
         }
-        return  comprovar1;
+        return comprovar1;
     }
-    
+
     public static int[] encuentraNumerosRepetidos(int[] numeros) {
         int[] numerosRpetidos = new int[numeros.length];
 
-        boolean comprovar;
-
         for (int i = 0; i < numeros.length; i++) {
             for (int j = i + 1; j < numeros.length; j++) {
-                comprovar = true;
                 if (numeros[i] == numeros[j]) {
-                    for (int t = 0; t < numerosRpetidos.length; t++) {
-                        if (numerosRpetidos[t] == numeros[i]) {
-                            comprovar = false;
-                            break;
-                        }
-                    }
-                    if (comprovar) {
+                    if (siNumeroEnArray(numerosRpetidos, numeros[i])) {
                         numerosRpetidos[i] = numeros[i];
                     }
                 }
@@ -45,24 +36,28 @@ public class Duplicados {
         return numerosRpetidos;
     }
 
+    public static void imprimeArraySinCeros(int[] numeros){
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] != 0) {
+                System.out.print(numeros[i] + " ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
         int[] numeros = new int[10];
         rellenaArray(numeros, 1, 10);
 
-        for (int i = 0; i < numeros.length; i++) {
-            System.out.print(numeros[i]+ " ");
-        }
-        System.out.println();
-
-        System.out.print("Se reptien los sigueientes numeros  ");
-
         int[] numerosRepetidos = encuentraNumerosRepetidos(numeros);
 
-        for (int i = 0; i < numerosRepetidos.length; i++) {
-            if (numerosRepetidos[i] != 0) {
-                System.out.print(numerosRepetidos[i]+" ");
-            }
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print(numeros[i] + " ");
         }
+
+        System.out.println();
+        System.out.print("Se reptien los sigueientes numeros  ");
+
+        imprimeArraySinCeros(numerosRepetidos);
     }
 }
