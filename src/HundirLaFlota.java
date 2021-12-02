@@ -1,14 +1,6 @@
 import java.util.Scanner;
 
 public class HundirLaFlota {
-    public static void imprimeMatriz(int[][] numeros) {
-        for (int i = 0; i < numeros.length; i++) {
-            for (int j = 0; j < numeros[0].length; j++) {
-                System.out.print(numeros[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
 
     public static void createShips(int numShips, int[][] shipPlaces) {
         int r1, r2;
@@ -61,16 +53,16 @@ public class HundirLaFlota {
             for (int j = 0; j < tablero[0].length; j++) {
                 switch (tablero[i][j]) {
                     case 0:
-                        System.out.print("0 ");
+                        System.out.print("♒ ");
                         break;
                     case 1:
-                        System.out.print("1 ");
+                        System.out.print("\uD83D\uDEA4 ");
                         break;
                     case 2:
-                        System.out.print("X ");
+                        System.out.print("✔ ");
                         break;
                     case 3:
-                        System.out.print("o ");
+                        System.out.print("✖ ");
                         break;
                 }
             }
@@ -91,7 +83,8 @@ public class HundirLaFlota {
         }
         return undido;
     }
-    public static int convierteFila(String letra){
+
+    public static int convierteFila(String letra) {
         int fila = 0;
         switch (letra) {
             case "A":
@@ -143,12 +136,12 @@ public class HundirLaFlota {
 
             if (disparaTablero(shipPlaces, convierteFila(fila), columna)) {
                 sunk++;
-                System.out.println("Acertado");
             }
             shots++;
 
         } while (sunk < 10);
 
+        imprimeEstadisticas(shipPlaces, shots, sunk);
         System.out.println("HAS GANADO");
 
     }
